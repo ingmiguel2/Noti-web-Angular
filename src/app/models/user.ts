@@ -1,9 +1,8 @@
-export interface User {
-  user: {
-    id: number,
-    usuario: string,
-    correo: string,
-    clave: string,
-  }
-
-}
+export interface User { 
+  _id?: string; 
+  nombre: string; 
+  correo: string; 
+  contrasena: string; 
+  rol: "admin" | "editor" | "lector"; 
+  fechaRegistro: Date; 
+} 
