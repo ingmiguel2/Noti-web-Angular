@@ -6,6 +6,7 @@ import { Login } from './components/authentication/login/login';
 import { Animal } from './components/base/animal/animal';
 import { Users } from './components/base/users/users';
 import { Logout } from './components/authentication/logout/logout';
+import { Noticia } from './components/base/noticia/noticia';
 
 export const routes: Routes = [
     {path: 'login', component: Login},
@@ -14,4 +15,5 @@ export const routes: Routes = [
     {path: 'animal', component: Animal},
     {path: 'users', component: Users},
     {path: 'logout', component: Logout},
+    {path: 'noticia', component: Noticia}
 ];

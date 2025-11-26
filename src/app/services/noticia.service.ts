@@ -24,9 +24,9 @@ export class NoticiaService {
       });
   }
 
-  obtenerNoticias(): Observable<Noticia[]> { 
+    obtenerNoticias(): Observable<Noticia[]> { 
     return this.http.get<Noticia[]>(`${this.apiUrl}/noticia/all`);
-  } 
+    } 
 
     actualizarNoticia(token: any, id: any, data: any): Observable<any> {
     console.log(data)
@@ -41,9 +41,20 @@ export class NoticiaService {
       });
   }
 
-    getOneAnimal(token: any, id: any): Observable<any> {
+    obtenerUnaNoticia(token: any, id: any): Observable<any> {
     return this.http.get<any>(
-      this.apiUrl + '/noticia' + id,
+      this.apiUrl + '/noticia/' + id,
+      {
+        headers: {
+          'Content-Type': 'application/json',
+          accessToken: `${token}`
+        }
+      });
+  }
+
+    eliminarNoticia(token: any, id: any) {
+    return this.http.delete<any>(
+      this.apiUrl + "/noticia/" + id,
       {
         headers: {
           'Content-Type': 'application/json',
