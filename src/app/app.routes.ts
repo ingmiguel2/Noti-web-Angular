@@ -13,5 +13,5 @@ export const routes: Routes = [
     {path: '', component: Homei, pathMatch: 'full'},
     {path: 'animal', component: Animal},
     {path: 'users', component: Users},
-    {path: 'logout', component: Logout}
+    {path: 'logout', component: Logout},
 ];
