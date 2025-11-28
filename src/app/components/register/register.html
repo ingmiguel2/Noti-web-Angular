@@ -1,9 +1,7 @@
 <div class="container">
     <!-- Outer Row -->
     <div class="row justify-content-center">
-
         <div class="col-xl-10 col-lg-12 col-md-9">
-
             <div class="card o-hidden border-0 shadow-lg my-5">
                 <div class="card-body p-0">
                     <!-- Nested Row within Card Body -->
@@ -49,25 +47,21 @@
                                         </div>
                                     </div>
 
-<!-- Después del campo de correo y antes de la contraseña -->
-<div class="form-group">
-    <label class="form-label">Tipo de usuario</label>
-    <select 
-        formControlName="rol"
-        class="form-control form-control-user"
-        [class.is-invalid]="rol?.invalid && rol?.touched">
-        <option value="lector">Lector (Solo puede leer noticias)</option>
-        <option value="editor">Editor (Puede crear y editar noticias)</option>
-        <option value="admin">Administrador (Acceso total)</option>
-    </select>
-    <div class="invalid-feedback" *ngIf="rol?.invalid && rol?.touched">
-        Selecciona un tipo de usuario
-    </div>
-</div>
-
-
-
-
+                                    <!-- Selector de Rol - CORREGIDO -->
+                                    <div class="form-group">
+                                        <select 
+                                            formControlName="rol"
+                                            class="form-control form-control-user"
+                                            [class.is-invalid]="rol?.invalid && rol?.touched">
+                                            <option value="" disabled selected>Seleccionar tipo de usuario</option>
+                                            <option value="lector">Lector</option>
+                                            <option value="editor">Editor</option>
+                                            <option value="admin">Administrador</option>
+                                        </select>
+                                        <div class="invalid-feedback" *ngIf="rol?.invalid && rol?.touched">
+                                            Selecciona un tipo de usuario
+                                        </div>
+                                    </div>
 
                                     <!-- Contraseña -->
                                     <div class="form-group">
@@ -76,9 +70,9 @@
                                             formControlName="contrasena"
                                             class="form-control form-control-user"
                                             [class.is-invalid]="contrasena?.invalid && contrasena?.touched"
-                                            placeholder="Escribir contrasena...">
+                                            placeholder="Escribir contraseña...">
                                         <div class="invalid-feedback" *ngIf="contrasena?.invalid && contrasena?.touched">
-                                            <div *ngIf="contrasena?.errors?.['required']">La contrasena es requerida</div>
+                                            <div *ngIf="contrasena?.errors?.['required']">La contraseña es requerida</div>
                                             <div *ngIf="contrasena?.errors?.['minlength']">Mínimo 6 caracteres</div>
                                         </div>
                                     </div>
@@ -90,10 +84,10 @@
                                             formControlName="confirmarContrasena"
                                             class="form-control form-control-user"
                                             [class.is-invalid]="confirmarContrasena?.invalid && confirmarContrasena?.touched"
-                                            placeholder="Confirmar contrasena...">
+                                            placeholder="Confirmar contraseña...">
                                         <div class="invalid-feedback" *ngIf="confirmarContrasena?.invalid && confirmarContrasena?.touched">
-                                            <div *ngIf="confirmarContrasena?.errors?.['required']">Confirma tu contrasena</div>
-                                            <div *ngIf="confirmarContrasena?.errors?.['passwordMismatch']">Las contrasenas no coinciden</div>
+                                            <div *ngIf="confirmarContrasena?.errors?.['required']">Confirma tu contraseña</div>
+                                            <div *ngIf="confirmarContrasena?.errors?.['passwordMismatch']">Las contraseñas no coinciden</div>
                                         </div>
                                     </div>
 
@@ -128,8 +122,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
-
     </div>
 </div>

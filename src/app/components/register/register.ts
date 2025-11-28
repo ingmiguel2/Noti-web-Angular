@@ -29,7 +29,7 @@ export class Register {
       correo: ['', [Validators.required, Validators.email]],
       contrasena: ['', [Validators.required, Validators.minLength(6)]],
       confirmarContrasena: ['', [Validators.required]],
-      rol: ['lector'] // Valor por defecto
+      rol: ['lector', [Validators.required]]  // Valor por defecto
     }, { validator: this.passwordMatchValidator });
   }
 
@@ -51,6 +51,9 @@ export class Register {
       this.loading = true;
       this.errorMessage = '';
       this.successMessage = '';
+
+      console.log('🎯 VALOR DE ROL SELECCIONADO:', this.registerForm.get('rol')?.value);
+    console.log('📋 FORMULARIO COMPLETO:', this.registerForm.value);
 
       const userData: User = {
         nombre: this.registerForm.get('nombre')?.value,
