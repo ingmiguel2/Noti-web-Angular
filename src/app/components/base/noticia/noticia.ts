@@ -1,15 +1,18 @@
 import { CommonModule, formatDate } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Menu } from '../../menu/menu';
 import { NoticiaService } from '../../../services/noticia.service';
 import { Route, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { take } from 'rxjs';
+import { FilterPipe } from '../../../pipes/filter.pipe';
+//import { FilterPipe } from '../../../pipes/filter.pipe';
 
 @Component({
   selector: 'app-noticia',
-  imports: [CommonModule, ReactiveFormsModule, Menu],
+  standalone: true,
+  imports: [CommonModule, ReactiveFormsModule, Menu, FilterPipe, FormsModule],
   templateUrl: './noticia.html',
   styleUrl: './noticia.css',
 })
@@ -21,7 +24,7 @@ export class Noticia {
     private toastr: ToastrService) {
 
     }
-
+    searchText = '';
     tittlePage: string = 'Noticias';
     noticiaList: any = [];
     noticiaForm!: FormGroup;

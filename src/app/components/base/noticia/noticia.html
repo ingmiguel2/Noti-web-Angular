@@ -72,7 +72,11 @@
                   <!-- Button trigger modal -->
                   <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     Registrar noticia
-                  </button>
+                  </button> 
+                </div>
+
+                <div class="">
+                  <input type="text" class="form-control mb-3" placeholder="Buscar por categoria..." [(ngModel)]="searchText">
                 </div>
                 <!--INICIA TABLA-->
                 <div class="table-responsive">
@@ -92,7 +96,7 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr *ngFor="let item of noticiaList">
+                      <tr *ngFor="let item of noticiaList | categoryFilter:searchText:'categoria'"> 
                         <td>{{item.titulo}}</td>
                         <td>{{item.contenido}}</td>
                         <td>{{item.autor}}</td>
